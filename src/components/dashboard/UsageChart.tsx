@@ -48,7 +48,7 @@ export function UsageChart({ data, title, description, dataKey, color = "#2563eb
               <Tooltip 
                 labelFormatter={(val) => new Date(val).toLocaleString()}
                 contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                formatter={(val: number) => [`${val} ${unit}`, 'Usage']}
+                formatter={(val: any) => [`${val} ${unit}`, 'Usage']}
               />
               <Area 
                 type="monotone" 
