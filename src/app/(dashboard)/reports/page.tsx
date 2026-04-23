@@ -98,7 +98,7 @@ export default function ReportsPage() {
               <CardDescription>Analyze historical consumption patterns</CardDescription>
             </div>
             <div className="w-full sm:w-64">
-              <Select value={selectedMeter} onValueChange={setSelectedMeter}>
+              <Select value={selectedMeter} onValueChange={(value) => setSelectedMeter(value)}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select a meter" />
                 </SelectTrigger>
