@@ -27,7 +27,7 @@ export default function CustomerDashboard() {
           api.meters.getByCustomer(user.id),
           api.alerts.getByCustomer(user.id)
         ]);
-        
+
         setMeters(customerMeters);
         setAlerts(customerAlerts);
 
@@ -68,27 +68,27 @@ export default function CustomerDashboard() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <KPICard 
-          title="Current Water Usage" 
-          value={`${latestUsage.toLocaleString()} L`} 
+        <KPICard
+          title="Current Water Usage"
+          value={`${latestUsage.toLocaleString()} L`}
           icon={Droplets}
           trend={{ value: 2.4, label: "vs last hour", isPositive: false }}
         />
-        <KPICard 
-          title="Average Pressure" 
-          value={`${latestPressure} kPa`} 
+        <KPICard
+          title="Average Pressure"
+          value={`${latestPressure} kPa`}
           icon={Activity}
           description="Within normal parameters"
         />
-        <KPICard 
-          title="Energy Consumption" 
-          value={`${Math.round(totalEnergy)} kWh`} 
+        <KPICard
+          title="Energy Consumption"
+          value={`${Math.round(totalEnergy)} kWh`}
           icon={Zap}
           trend={{ value: 5.1, label: "vs yesterday", isPositive: true }}
         />
-        <KPICard 
-          title="Active Alerts" 
-          value={activeAlerts.length} 
+        <KPICard
+          title="Active Alerts"
+          value={activeAlerts.length}
           icon={AlertTriangle}
           className={activeAlerts.length > 0 ? "border-amber-200 dark:border-amber-900/50 bg-amber-50/50 dark:bg-amber-900/10" : ""}
           description={activeAlerts.length > 0 ? "Requires attention" : "All systems normal"}
@@ -96,11 +96,11 @@ export default function CustomerDashboard() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-3">
-        <UsageChart 
-          title="Water Usage Trend (Last 12 Hours)" 
+        <UsageChart
+          title="Water Usage Trend (Last 12 Hours)"
           description="Aggregate usage across your primary meters"
-          data={telemetryHistory} 
-          dataKey="waterUsageLitres" 
+          data={telemetryHistory}
+          dataKey="waterUsageLitres"
           unit="L"
         />
 
@@ -118,10 +118,9 @@ export default function CustomerDashboard() {
                   <div key={alert.id} className="flex flex-col gap-1 pb-4 border-b border-slate-100 dark:border-slate-800 last:border-0 last:pb-0">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <AlertTriangle className={`h-4 w-4 ${
-                          alert.severity === 'critical' ? 'text-rose-500' : 
-                          alert.severity === 'warning' ? 'text-amber-500' : 'text-blue-500'
-                        }`} />
+                        <AlertTriangle className={`h-4 w-4 ${alert.severity === 'critical' ? 'text-rose-500' :
+                            alert.severity === 'warning' ? 'text-amber-500' : 'text-blue-500'
+                          }`} />
                         <span className="text-sm font-medium text-slate-900 dark:text-white capitalize">{alert.type.replace('_', ' ')}</span>
                       </div>
                       <Badge variant={alert.status === 'active' ? 'destructive' : 'secondary'} className="text-[10px]">
@@ -162,7 +161,7 @@ export default function CustomerDashboard() {
                   <TableCell className="capitalize">{meter.type}</TableCell>
                   <TableCell>
                     <Badge variant={meter.status === 'online' ? 'default' : meter.status === 'offline' ? 'destructive' : 'secondary'}
-                           className={meter.status === 'online' ? 'bg-emerald-500 hover:bg-emerald-600' : ''}>
+                      className={meter.status === 'online' ? 'bg-emerald-500 hover:bg-emerald-600' : ''}>
                       {meter.status}
                     </Badge>
                   </TableCell>

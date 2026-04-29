@@ -21,8 +21,8 @@ export function DistributionChart({ data, title, description, dataKey, nameKey }
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="h-[300px] w-full">
-          <ResponsiveContainer width="100%" height="100%">
+        <div className="h-[300px] w-full min-h-[300px] min-w-0">
+          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
             <PieChart>
               <Pie
                 data={data}

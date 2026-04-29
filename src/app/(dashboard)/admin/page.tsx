@@ -9,6 +9,7 @@ import { DistributionChart } from '@/components/dashboard/DistributionChart';
 import { Users, Activity, AlertTriangle, WifiOff } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import LiveEdgeTelemetry from '@/components/LiveEdgeTelemetry';
 
 export default function AdminDashboard() {
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -121,6 +122,8 @@ export default function AdminDashboard() {
           nameKey="name"
         />
       </div>
+
+      <LiveEdgeTelemetry />
 
       <Card className="border-slate-200 dark:border-slate-800">
         <CardHeader>
